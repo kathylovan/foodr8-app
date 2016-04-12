@@ -1,6 +1,7 @@
 <h1>Sign up</h1>
 <%= bootstrap_form_for @user do |f| %>
-	<%= f.text_field :name %>
+	<%= f.text_field :name, label: "Full Name" %>
+	<%= f.text_field :username %>
 	<%= f.email_field :email %>
 	<%= f.password_field :password %>
 	<%= f.password_field :password_confirmation %>

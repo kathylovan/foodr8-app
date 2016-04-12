@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
     before_action :is_authenticated?, except: [:new, :create]
-    
+
     def new
         @user = User.new
     end
 
     def create
         user = User.create user_params
-        flash[:success] = "User created"
+        session[:user_id] = user.id
+        flash[:success] = "Welcome " + user.username + "!"
         redirect_to root_path
     end
 
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
     end
 end
