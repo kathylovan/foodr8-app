@@ -4,13 +4,10 @@ Rails.application.routes.draw do
   get "about" => "main#about"
 
   get "signup" => "users#new", :as => "users"
-
   post "signup" => "users#create"
 
   get "login" => "sessions#new"
-
   post "login" => "sessions#create"
-
   get "logout" => "sessions#destroy"
 
   # get 'users/edit'
