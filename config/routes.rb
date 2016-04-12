@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/create'
+
+  get 'users/new'
+
+  get 'users/edit'
+
+  get 'users/show'
+
+  get 'users/update'
+
+  get 'users/destroy'
+
   root "main#index"
   
   get "about" => "main#about"
