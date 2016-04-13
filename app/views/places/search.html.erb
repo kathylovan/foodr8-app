@@ -1,14 +1,19 @@
-<h1>Search results for <%= @term %> near <%= @location %></h1>
+<h1><%= @total %> results for <%= @term %> near <%= @location %></h1>
 
 <% if @results.businesses.present? %>
 	<% @results.businesses.each do |place| %>
 		<div class="well">
+			<% if place.image_url.present? %>
+				<img src="<%= place.image_url %>" alt="business-image">
+			<% end %>
 			<h1><%= place.name %></h1>
 			<% if place.location.neighborhoods.present? %>
 				<h4><%= place.location.neighborhoods[0] %></h4>
 			<% end %>
 			<h4><%= place.location.cross_streets %></h4>
-			<a href="" class="btn btn-default">More info</a>
+			<p><%= place.location.address[0] %></p>
+			<p><%= place.location.city %>, <%= place.location.state_code %> <%= place.location.postal_code %></p>
+			<a href="" class="btn btn-default">See reviews</a>
 		</div>
 	<% end %>
 <% else %>

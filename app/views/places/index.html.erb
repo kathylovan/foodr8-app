@@ -1,8 +1,10 @@
-<h3>Find restaurant reviews</h3>
+<h3>Find restaurants</h3>
 <%= form_tag("/results", method: "get") do %>
 	<%= label_tag(:term, "What") %>
 	<%= text_field_tag(:term) %>
 	<%= label_tag(:location, "Where") %>
 	<%= text_field_tag(:location) %>
-	<%= submit_tag("Go") %>
+	<%= submit_tag("Search") %>
 <% end %>
+<br />
+<%= image_tag("yelp_powered_btn_light.png", alt: "powered by yelp") %>

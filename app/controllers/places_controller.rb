@@ -13,12 +13,6 @@ class PlacesController < ApplicationController
     def show
     end
 
-    def update
-    end
-
-    def destroy
-    end
-
     def search
         client = Yelp::Client.new({
             consumer_key: ENV["CONSUMER_KEY"],
@@ -32,6 +26,8 @@ class PlacesController < ApplicationController
         @term = params[:term].to_s
         @location = params[:location].to_s
 
-        @results = client.search(@location, { term: @term }, limit: 2)
+        @results = client.search(@location, { term: @term })
+
+        @total = @results.businesses.length
     end
 end
