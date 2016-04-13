@@ -4,8 +4,11 @@
 	<% @results.businesses.each do |place| %>
 		<div class="well">
 			<h1><%= place.name %></h1>
-			<h4><%= place.location.neighborhoods[0] %></h4>
+			<% if place.location.neighborhoods.present? %>
+				<h4><%= place.location.neighborhoods[0] %></h4>
+			<% end %>
 			<h4><%= place.location.cross_streets %></h4>
+			<a href="" class="btn btn-default">More info</a>
 		</div>
 	<% end %>
 <% else %>
