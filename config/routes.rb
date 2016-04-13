@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get "results/details" => "places#show"
   post "results/details" => "places#create"
 
+  get "reviews/new/:id" => "reviews#new"
+  post "reviews/new/:id" => "reviews#create"
+
   # get 'users/edit'
 
   # get 'users/show'
