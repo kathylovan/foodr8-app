@@ -1,0 +1,8 @@
+<h3>Find restaurant reviews</h3>
+<%= form_tag("/results", method: "get") do %>
+	<%= label_tag(:term, "What") %>
+	<%= text_field_tag(:term) %>
+	<%= label_tag(:location, "Where") %>
+	<%= text_field_tag(:location) %>
+	<%= submit_tag("Go") %>
+<% end %>

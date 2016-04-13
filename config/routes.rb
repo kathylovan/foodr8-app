@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
 
+  get "search" => "places#index"
+  get "results" => "places#search"
+
   # get 'users/edit'
 
   # get 'users/show'

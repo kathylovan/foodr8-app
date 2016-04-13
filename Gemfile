@@ -28,6 +28,10 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+gem 'rest-client'
+
+gem 'yelp', require: 'yelp'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
