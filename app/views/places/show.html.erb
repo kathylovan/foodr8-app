@@ -1,2 +1,17 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+<% if @image.present? %>
+	<img src="<%= @image %>" alt="business-image">
+<% end %>
+<h1><%= @name %></h1>
+<p><%= @address %></p>
+<p><%= @city %>, <%= @state %> <%= @zip %></p>
+
+<%= form_for :place do |place| %>
+	<%= place.hidden_field :place_id, value: @place_id %>
+	<%= place.hidden_field :name, value: @name %>
+	<%= place.hidden_field :addess, value: @address %>
+	<%= place.hidden_field :city, value: @city %>
+	<%= place.hidden_field :state, value: @state %>
+	<%= place.hidden_field :zip, value: @zip %>
+	<%= place.hidden_field :image, value: @image %>
+	<%= submit_tag("Rate this place") %>
+<% end %>

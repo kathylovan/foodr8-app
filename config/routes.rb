@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "search" => "places#index"
   get "results" => "places#search"
+  get "results/details" => "places#show"
+  post "results/details" => "places#create"
 
   # get 'users/edit'
 
