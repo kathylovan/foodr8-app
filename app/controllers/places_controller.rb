@@ -32,6 +32,6 @@ class PlacesController < ApplicationController
         @term = params[:term].to_s
         @location = params[:location].to_s
 
-        results = render json: client.search(@location, { term: @term }, limit: 2)
+        @results = client.search(@location, { term: @term }, limit: 2)
     end
 end

@@ -1,0 +1,14 @@
+<h1>Search results for <%= @term %> near <%= @location %></h1>
+
+<% if @results.businesses.present? %>
+	<% @results.businesses.each do |place| %>
+		<div class="well">
+			<h1><%= place.name %></h1>
+			<h4><%= place.location.neighborhoods[0] %></h4>
+			<h4><%= place.location.cross_streets %></h4>
+		</div>
+	<% end %>
+<% else %>
+	<p>No results found</p>
+	<a href="/search">Try again</a>
+<% end %>
