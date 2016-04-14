@@ -11,5 +11,7 @@
 	<%= f.select :dog, [0, 1, 2, 3, 4, 5], :label => "Dog-friendly" %>
 	<%= f.select :gluten, [0, 1, 2, 3, 4, 5], :label => "Gluten-free options" %>
 	<%= f.text_area :comments %>
+	<%= f.hidden_field :place_id, value: @place.id %>
+	<%= f.hidden_field :user_id, value: @user.id %>
 	<%= f.submit "Submit review" %>
 <% end %>

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
-    before_action :is_authenticated?
-    
+    before_action :is_authenticated?, except: [:show]
+
     def new
         @place = Place.find(params[:id])
         @user = User.find(@current_user[:id])
@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
     def update
     end
 
-    def showe
+    def show
     end
 
     def destroy
@@ -27,6 +27,6 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        params.require(:review).permit(:food, :drinks, :service, :atmostphere, :parking, :family, :dog, :gluten, :comments)
+        params.require(:review).permit(:place_id, :user_id, :food, :drinks, :service, :atmosphere, :parking, :family, :dog, :gluten, :comments)
     end
 end
