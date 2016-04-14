@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   get "signup" => "users#new", :as => "users"
   post "signup" => "users#create"
+  get "myaccount" => "users#show"
+  get "myaccount/edit" => "users#edit"
+  post "myaccount/edit" => "users#update"
+  delete "myaccount" => "users#destroy"
 
   get "login" => "sessions#new"
   post "login" => "sessions#create"
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
   get "reviews/new/:id" => "reviews#new"
   post "reviews/new/:id" => "reviews#create"
 
+  get "/(*url)", to: redirect("/")
   # get 'users/edit'
 
   # get 'users/show'

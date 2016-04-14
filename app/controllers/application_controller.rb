@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def is_authenticated?
   	unless current_user
-  		flash[:danger] = "Only members can submit ratings. Sign up or log in now."
+  		flash[:danger] = "You must be a member. Sign up or log in now."
   		redirect_to root_path
   	end
   end
