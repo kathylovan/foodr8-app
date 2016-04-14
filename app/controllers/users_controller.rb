@@ -20,6 +20,17 @@ class UsersController < ApplicationController
     end
 
     def update
+        user_id = @current_user.id
+        user = User.find(user_id)
+
+        if user_params == nil
+            flash[:danger] = "Passwords do not match"
+            redirect_to "/myaccount/edit"
+        else
+            user.update user_params
+            flash[:success] = "Account updated"
+            redirect_to "/myaccount"
+        end
     end
 
     def destroy
@@ -34,6 +45,12 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
+        password = params[:user][:password]
+        password_confirmation = params[:user][:password_confirmation]
+        if password == password_confirmation
+            params.require(:user).permit(:name, :username, :email)
+        else
+            nil
+        end
     end
 end

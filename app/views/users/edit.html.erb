@@ -1,2 +1,10 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>Edit my account details</h1>
+<%= bootstrap_form_for :user do |f| %>
+	<%= f.text_field :name, label: "Full Name", value: @current_user["name"] %>
+	<%= f.text_field :username, value: @current_user["username"] %>
+	<%= f.email_field :email, value: @current_user["email"] %>
+	<%= f.password_field :password %>
+	<%= f.password_field :password_confirmation %>
+	<%= f.submit "Save", class: "btn btn-primary" %>
+	<%= link_to "Cancel", "/myaccount", class: "btn btn-primary" %>
+<% end %>
