@@ -34,12 +34,13 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        # user = User.find(@current_user.id)
-        # user_reviews = Review.where(user_id: @current_user.id)
-        # user.delete
-        # user_reviews.delete
-        # flash[:success] = "Account deleted"
-        # redirect_to root_path
+        user_id = @current_user.id
+        user = User.find(user_id)
+        user_reviews = Review.where(user_id: user_id)
+        user.delete
+        user_reviews.delete
+        flash[:success] = "Accout deleted"
+        redirect_to root_path
     end
 
     private
