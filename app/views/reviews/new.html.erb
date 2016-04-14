@@ -1,3 +1,15 @@
 <h1>Rate <%= @place.name %></h1>
+<p>Note: Your review will be publicly available. You may edit or delete it at any time under My Account.</p>
 
-	
+<%= bootstrap_form_for :review do |f| %>
+	<%= f.select :food, [0, 1, 2, 3, 4, 5] %>
+	<%= f.select :drinks, [0, 1, 2, 3, 4, 5], :label => "Drinks (alcoholic and non-alcoholic) " %>
+	<%= f.select :service, [0, 1, 2, 3, 4, 5] %>
+	<%= f.select :atmosphere, [0, 1, 2, 3, 4, 5] %>
+	<%= f.select :parking, [0, 1, 2, 3, 4, 5] %>
+	<%= f.select :family, [0, 1, 2, 3, 4, 5], :label => "Family-friendly" %>
+	<%= f.select :dog, [0, 1, 2, 3, 4, 5], :label => "Dog-friendly" %>
+	<%= f.select :gluten, [0, 1, 2, 3, 4, 5], :label => "Gluten-free options" %>
+	<%= f.text_area :comments %>
+	<%= f.submit "Submit review" %>
+<% end %>
