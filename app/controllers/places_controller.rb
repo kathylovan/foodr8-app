@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
     end
 
     def create
-        place_params = params.require(:place).permit(:place_id, :name, :address, :city, :state, :zip, :image)
+        # place_params = params.require(:place).permit(:place_id, :name, :address, :city, :state, :zip, :image)
         new_place = Place.find_or_create_by(place_params)
         redirect_to "/reviews/new/#{new_place.id}"
     end
@@ -19,6 +19,7 @@ class PlacesController < ApplicationController
         @state = params[:state].to_s
         @zip = params[:zip].to_s
         @image = params[:image].to_s
+        @reviews = Review.all
     end
 
     def search
@@ -37,5 +38,11 @@ class PlacesController < ApplicationController
         @results = client.search(@location, { term: @term })
 
         @total = @results.businesses.length
+    end
+
+    private
+
+    def place_params
+        params.require(:place).permit(:place_id, :name, :address, :city, :state, :zip, :image)
     end
 end

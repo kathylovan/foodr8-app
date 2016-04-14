@@ -1,6 +1,8 @@
 require "bcrypt"
 
 class User < ActiveRecord::Base
+	has_many :review
+
 	validates :password,
 		presence: true,
 		on: :create,

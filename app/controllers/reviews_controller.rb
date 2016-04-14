@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
     end
 
     def show
+        @reviews = Review.where(place_id: @place.id)
     end
 
     def destroy
