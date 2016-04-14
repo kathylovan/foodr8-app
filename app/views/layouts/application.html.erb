@@ -31,6 +31,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<% if @current_user %>
 							<p class="navbar-text">Signed in as <%= @current_user.username %></p>
+							<li><a href="/myaccount">My Account</a></li>
 							<li><a href="/logout">Log out</a></li>
 						<% else %>
 							<li><a href="/signup">Sign up</a></li>

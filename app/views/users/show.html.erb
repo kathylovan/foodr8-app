@@ -13,8 +13,69 @@
 		<dt>Password</dt>
 		<dd>-</dd>
 	</dl>
+	<%= link_to "New review", "/search", class: "btn btn-primary" %>
 	<%= link_to "Edit account", "myaccount/edit", class: 'btn btn-primary' %>
 	<%= link_to "Delete account", "myaccount", :method => :delete, class: 'btn btn-primary' %>
+	<br />
+	<h3>My reviews</h3><br />
+	<% if @my_reviews.present? %>
+		<% @my_reviews.each do |review| %>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<strong><%= review.place.name %></strong>
+				<%= review.place.address %>,
+				<%= review.place.city %>, <%= review.place.state %> <%= review.place.zip %>
+			</div>
+			<div class="panel-body">
+				<p>"<%= review.comments %>"</p>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.food %></span>
+					Food
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.drinks %></span>
+					Drinks (alcoholic and non-alcoholic)
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.service %></span>
+					Service
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.atmosphere %></span>
+					Atmosphere
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.gluten %></span>
+					Gluten-free options
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.family %></span>
+					Family-friendly
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.dog %></span>
+					Dog-friendly
+				</li>
+			</ul>
+		</div>
+		<% end %>
+	<% else %>
+		<p>No reviews yet</p>
+	<% end %>
 <% else %>
 	<% redirect_to action: :index%>
 <% end %>
