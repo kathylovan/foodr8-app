@@ -6,10 +6,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create user_params
-        session[:user_id] = user.id
-        flash[:success] = "Welcome " + user.username + "!"
-        redirect_to root_path
+        # User.create user_params
+        if user_params == nil
+            flash[:danger] = "Passwords do not match"
+            redirect_to "/signup"
+        else
+            user = User.create user_params
+            session[:user_id] = user.id
+            flash[:success] = "Welcome " + user.username + "!"
+            redirect_to "/myaccount"
+        end
     end
 
     def edit
@@ -39,7 +45,7 @@ class UsersController < ApplicationController
         user_reviews = Review.where(user_id: user_id)
         user.delete
         user_reviews.delete
-        flash[:success] = "Accout deleted"
+        flash[:success] = "Account deleted"
         redirect_to root_path
     end
 
@@ -49,7 +55,7 @@ class UsersController < ApplicationController
         password = params[:user][:password]
         password_confirmation = params[:user][:password_confirmation]
         if password == password_confirmation
-            params.require(:user).permit(:name, :username, :email)
+            params.require(:user).permit(:name, :username, :email, :password, :password_confirmation)
         else
             nil
         end
