@@ -6,7 +6,6 @@ class PlacesController < ApplicationController
     end
 
     def create
-        # place_params = params.require(:place).permit(:place_id, :name, :address, :city, :state, :zip, :image)
         new_place = Place.find_or_create_by(place_params)
         redirect_to "/reviews/new/#{new_place.id}"
     end

@@ -20,60 +20,58 @@
 <h1>Ratings</h1>
 
 <% @reviews.each do |review| %>
-	<% if review.place_id == review.place.id && review.place.name == @name %>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			Submitted by <strong><%= review.user.username %></strong>
+	<% if review.place.name == @name %>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Submitted by <strong><%= review.user.username %></strong>
+			</div>
+			<div class="panel-body">
+				<p>"<%= review.comments %>"</p>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.food %></span>
+					Food
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.drinks %></span>
+					Drinks (alcoholic and non-alcoholic)
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.service %></span>
+					Service
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.atmosphere %></span>
+					Atmosphere
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.gluten %></span>
+					Gluten-free options
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.family %></span>
+					Family-friendly
+				</li>
+			</ul>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="badge"><%= review.dog %></span>
+					Dog-friendly
+				</li>
+			</ul>
 		</div>
-		<div class="panel-body">
-			<p>"<%= review.comments %>"</p>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.food %></span>
-				Food
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.drinks %></span>
-				Drinks (alcoholic and non-alcoholic)
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.service %></span>
-				Service
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.atmosphere %></span>
-				Atmosphere
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.gluten %></span>
-				Gluten-free options
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.family %></span>
-				Family-friendly
-			</li>
-		</ul>
-		<ul class="list-group">
-			<li class="list-group-item">
-				<span class="badge"><%= review.dog %></span>
-				Dog-friendly
-			</li>
-		</ul>
-	</div>
-	<% else %>
-		<p>Not yet reviewed. Be the first to review!</p>	
-	<% end %>
+	<% end %>	
 <% end %>
 
 

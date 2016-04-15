@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   get "reviews/new/:id" => "reviews#new"
   post "reviews/new/:id" => "reviews#create"
 
+  #add route for editing reviews
+  #add route for seeing all reviews
+  #add route for deleting reviews
+  #once a place is reviewed, should redirect to dedicated place page
+
   get "/(*url)", to: redirect("/")
   # get 'users/edit'
 

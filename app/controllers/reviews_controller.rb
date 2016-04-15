@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
     def create
         new_review = Review.create(review_params)
-        redirect_to root_path
+        redirect_to "/myaccount"
     end
 
     def edit
