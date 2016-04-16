@@ -1,28 +1,31 @@
-<h1><%= @total %> results for <%= @term %> near <%= @location %></h1>
-
-<% if @results.businesses.present? %>
-	<% @results.businesses.each do |place| %>
-		<div class="well">
-			<% if place.image_url.present? %>
-				<img src="<%= place.image_url %>" alt="business-image">
-			<% end %>
-			<h1><%= place.name %></h1>
-			<p><%= place.location.address[0] %></p>
-			<p><%= place.location.city %>, <%= place.location.state_code %> <%= place.location.postal_code %></p>
-
-			<%= form_tag("/results/details", method: "get") do %>
-				<%= hidden_field_tag(:place, place.id) %>
-				<%= hidden_field_tag(:name, place.name) %>
-				<%= hidden_field_tag(:address, place.location.address[0]) %>
-				<%= hidden_field_tag(:city, place.location.city) %>
-				<%= hidden_field_tag(:state, place.location.state_code) %>
-				<%= hidden_field_tag(:zip, place.location.postal_code) %>
-				<%= hidden_field_tag(:image, place.image_url) %>
-				<%= submit_tag("More info") %>
-			<% end %>
-		</div>
+<h2>Results for <%= @term %> near <%= @location %></h2>
+<br/>
+<div class="search-results-area">
+	<% if @results.businesses.present? %>
+		<% @results.businesses.each do |place| %>
+			<div class="list-group" id="search-results-item">
+		    	<h4 class="list-group-item-heading"><%= place.name %></h4>
+		    	<p class="list-group-item-text"><%= place.location.address[0] %></p>
+		    	<p class="list-group-item-text">
+		    		<%= place.location.city %>, 
+		    		<%= place.location.state_code %> 
+		    		<%= place.location.postal_code %>
+		    	</p>
+		    	<br/>
+		    	<%= form_tag("/results/details", method: "get") do %>
+					<%= hidden_field_tag(:place, place.id) %>
+					<%= hidden_field_tag(:name, place.name) %>
+					<%= hidden_field_tag(:address, place.location.address[0]) %>
+					<%= hidden_field_tag(:city, place.location.city) %>
+					<%= hidden_field_tag(:state, place.location.state_code) %>
+					<%= hidden_field_tag(:zip, place.location.postal_code) %>
+					<%= hidden_field_tag(:image, place.image_url) %>
+					<%= submit_tag("Select", class: "btn btn-primary", id: "select-result-btn") %>
+				<% end %>
+			</div>
+		<% end %>
+	<% else %>
+		<p>No results found</p>
+		<a href="/search">Try again</a>
 	<% end %>
-<% else %>
-	<p>No results found</p>
-	<a href="/search">Try again</a>
-<% end %>
+</div>

@@ -36,3 +36,21 @@
 	width: 250px;
 }
 
+.search-results-area {
+	left: 20%;
+	right: 20%;
+	position: absolute;
+	margin-bottom: 100px;
+}
+
+#search-results-item {
+	margin-bottom: 10px;
+	background-color: #fff5e6;
+	padding: 15px;
+}
+
+#select-result-btn {
+	border-radius: 0;
+	border: none;
+	background-color: #ff9900;
+}
