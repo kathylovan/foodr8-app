@@ -17,13 +17,28 @@
 
  body {
  	padding-top: 70px;
+ 	padding-bottom: 70px;
  }
 
  .navbar {
  	background-color: #b33c00;
  }
  
- #navbar-brand, #nav-link {
+ #navbar-brand, #nav-link, #footer-text {
  	color: white;
  	font-family: 'Poppins', sans-serif;
+ }
+
+ #footer {
+ 	background-color: #f2f2f2;
+	border: none;
+ }
+
+ #footer-text {
+ 	color: black;
+ 	font-size: 2vh;
+ }
+
+ #about-link {
+ 	color: #b33c00;
  }

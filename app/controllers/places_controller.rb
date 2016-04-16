@@ -29,8 +29,6 @@ class PlacesController < ApplicationController
             token_secret: ENV["TOKEN_SECRET"]
         })
 
-        params.permit(:term, :location)
-
         @term = params[:term].to_s
         @location = params[:location].to_s
 
@@ -43,5 +41,9 @@ class PlacesController < ApplicationController
 
     def place_params
         params.require(:place).permit(:place_id, :name, :address, :city, :state, :zip, :image)
+    end
+
+    def search_params
+        params.permit(:term, :location)
     end
 end

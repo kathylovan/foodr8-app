@@ -34,7 +34,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<% if @current_user %>
-							<p class="navbar-text">Signed in as <%= @current_user.username %></p>
+							<p class="navbar-text" id="nav-link">Signed in as <%= @current_user.username %></p>
 							<li><a href="/myaccount" id="nav-link">My Account</a></li>
 							<li><a href="/logout" id="nav-link">Log out</a></li>
 						<% else %>
@@ -49,5 +49,19 @@
 		<%= render "layouts/flash" %> 
 		<%= yield %>
 	</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
+  		<div class="container">
+  			<ul class="nav navbar-nav navbar-left">
+	  			<p class="navbar-text" id="footer-text">
+	  				<span class="glyphicon glyphicon-copyright-mark" aria-hidden="true">
+	  				</span>
+	  				2016 Kathy Lovan. All rights reserved.
+	  			</p>
+	  		</ul>
+	  		<ul class="nav navbar-nav navbar-right">
+	  			<p class="navbar-text" id="footer-text"><a href="/about" id="about-link">About FOODR8</a></p>
+	  		</ul>
+  		</div>
+	</nav>
 </body>
 </html>

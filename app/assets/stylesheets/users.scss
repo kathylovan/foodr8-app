@@ -13,13 +13,14 @@
 	padding: 0px 20px 20px 20px;
 	margin-top: 10px;
 	font-family: 'Poppins', sans-serif;
+	font-size: 2vh;
 }
 
-.input-field, .signup-btn {
+.input-field, .signup-btn, .search-page-btn {
 	border-radius: 0;
 	border: none;
 }
 
-.signup-btn {
+.signup-btn, .search-page-btn {
 	background-color: #ff9900;
 }
