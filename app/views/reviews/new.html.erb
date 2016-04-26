@@ -10,7 +10,7 @@
 	<%= f.select :family, [0, 1, 2, 3, 4, 5], :label => "Family-friendly" %>
 	<%= f.select :dog, [0, 1, 2, 3, 4, 5], :label => "Dog-friendly" %>
 	<%= f.select :gluten, [0, 1, 2, 3, 4, 5], :label => "Gluten-free options" %>
-	<%= f.text_area :comments %>
+	<%= f.text_area :comments, :label => "Comments (500 character limit)", :maxlength => "500" %>
 	<%= f.hidden_field :place_id, value: @place.id %>
 	<%= f.hidden_field :user_id, value: @user.id %>
 	<%= f.submit "Submit review" %>

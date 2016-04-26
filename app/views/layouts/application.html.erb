@@ -29,6 +29,7 @@
     			<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-left">
+						<li><a href="/about" id="nav-link">About</a></li>
 						<li><a href="/" id="nav-link">How it works</a></li>
 						<li><a href="/search" id="nav-link">Find restaurants</a></li>
 					</ul>
@@ -49,6 +50,7 @@
 		<%= render "layouts/flash" %> 
 		<%= yield %>
 	</div>
+
 	<nav class="navbar navbar-default navbar-fixed-bottom" id="footer">
   		<div class="container">
   			<ul class="nav navbar-nav navbar-left">
@@ -58,10 +60,10 @@
 	  				2016 Kathy Lovan. All rights reserved.
 	  			</p>
 	  		</ul>
-	  		<ul class="nav navbar-nav navbar-right">
-	  			<p class="navbar-text" id="footer-text"><a href="/about" id="about-link">About FOODR8</a></p>
-	  		</ul>
   		</div>
 	</nav>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

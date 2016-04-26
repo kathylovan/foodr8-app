@@ -19,6 +19,7 @@ class PlacesController < ApplicationController
         @zip = params[:zip].to_s
         @image = params[:image].to_s
         @reviews = Review.all
+
     end
 
     def search
